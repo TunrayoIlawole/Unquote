@@ -8,8 +8,11 @@
     tools:context=".MainActivity">
 
    <ImageView
+       android:id="@+id/iv_main_question_image"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
+       android:layout_marginStart="4dp"
+       android:layout_marginLeft="4dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintTop_toTopOf="parent"
        app:layout_constraintStart_toStartOf="parent"
@@ -17,41 +20,46 @@
        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
+        android:id="@+id/tv_main_questions_remaining_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginBottom="30dp"
         android:textSize="48sp"
         android:textStyle="bold"
-        android:text="99"
+        android:text="@string/question_count"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
 
     <TextView
+        android:id="@+id/tv_main_questions_remaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="questions remaining"
+        android:text="@string/remaining_questions"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        app:layout_constraintBottom_toBottomOf=""
-        app:layout_constraintStart_toEndOf=""
-        app:layout_constraintTop_toTopOf=""
+        app:layout_constraintBottom_toBottomOf="@+id/tv_main_questions_remaining_count"
+        app:layout_constraintStart_toEndOf="@+id/tv_main_questions_remaining_count"
+        app:layout_constraintTop_toTopOf="@+id/tv_main_questions_remaining_count"
         />
 
     <Button
+        android:id="@+id/btn_main_submit_answer"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="@string/submit"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf=""
+        app:layout_constraintBottom_toBottomOf="@+id/tv_main_questions_remaining_count"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf=""
+        app:layout_constraintTop_toTopOf="@+id/tv_main_questions_remaining_count"
         />
     
     <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -65,19 +73,72 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
+            android:id="@+id/btn_main_answer_0"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button"
+            android:text="@string/Button"
         />
 
         <Button
+            android:id="@+id/btn_main_answer_2"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="@string/Button" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linear_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_main_answer_1"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Button"
+            />
+
+        <Button
+            android:id="@+id/btn_main_answer_3"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Button" />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/tv_main_question_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="18sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/linear_layout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Who is Bob Dylan" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
