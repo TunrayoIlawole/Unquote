@@ -23,7 +23,15 @@ public class MainActivityInstrumentedTest {
 
     @Test
     public void testSubmitAnswerButton_shouldDisplayGameOverMessage() {
-        Espresso.onView(withId(R.id.btn_main_answer_0)).perform(click());
+        activityRule.getScenario().onActivity(activity -> {
+            // Clear the list to ensure it's empty
+            activity.questions.clear();
+            // Add a single question to simulate end-of-game condition
+            activity.questions.add(new Question(921238, "How tall is the Eiffel tower?",
+                    "1024 ft", "1063 ft", "1124 ft", "1163 ft", 1));
+        });
+
+        Espresso.onView(withId(R.id.btn_main_answer_1)).perform(click());
         Espresso.onView(withId((R.id.btn_main_submit_answer))).perform(click());
 
         Espresso.onView(withText("Game Over!")).check(matches(isDisplayed()));
@@ -32,7 +40,10 @@ public class MainActivityInstrumentedTest {
 
     @Test
     public void testDisplayQuestionsRemaining() {
-        Espresso.onView(withId(R.id.tv_main_questions_remaining)).check(matches(withText("6")));
+        Espresso.onView(withId(R.id.btn_main_answer_1)).perform(click());
+        Espresso.onView(withId((R.id.btn_main_submit_answer))).perform(click());
+
+        Espresso.onView(withId(R.id.tv_main_questions_remaining)).check(matches(withText("5")));
     }
 
 
