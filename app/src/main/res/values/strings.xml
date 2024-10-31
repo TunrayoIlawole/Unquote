@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Unquote</string>
+    <string name="submit">Submit</string>
+    <string name="Button">Button</string>
+    <string name="remaining_questions">questions remaining</string>
+    <string name="question_count">99</string>
 </resources>
